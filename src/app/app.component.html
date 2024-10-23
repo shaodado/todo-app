@@ -1,1 +1,9 @@
-<app-task id="1" [content]="content" [type]="type" [(state)]="state"></app-task>
+<div>利用範本參考取得 TaskComponent 內狀態: {{ task.state }}</div>
+<hr />
+<app-task
+  #task
+  id="1"
+  [content]="content"
+  [type]="type"
+  [(state)]="state"
+></app-task>
