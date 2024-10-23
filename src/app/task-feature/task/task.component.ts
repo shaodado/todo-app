@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Attribute, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -12,14 +12,7 @@ export class TaskComponent {
   @Input() type!: 'Home' | 'Work' | 'Other';
   @Input() state!: 'None' | 'Doing' | 'Finish';
 
-  @Input() set id(id: string) {
-    this._id = +id;
-  }
-
-  get id(): string {
-    return this._id.toString();
-  }
-
+  constructor(@Attribute('id') public id: number) {}
   className = 'work';
 
   totalCount = 10;
