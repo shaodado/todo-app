@@ -1,5 +1,7 @@
 <p>Before ng-template</p>
-<ng-template>
+<div *ngTemplateOutlet="task"></div>
+<p>After ng-template</p>
+<ng-template #task>
   <app-task
     id="1"
     [content]="content"
@@ -11,4 +13,3 @@
   <div>已完成個數:{{ finishCount }}</div>
   <div>剩下代辦事項:{{ totalCount - finishCount }}</div>
 </ng-template>
-<p>After ng-template</p>
