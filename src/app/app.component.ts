@@ -10,6 +10,9 @@ export class AppComponent {
   type: 'Home' | 'Work' | 'Other' = 'Work';
   state: 'None' | 'Doing' | 'Finish' = 'None';
 
+  totalCount = 10;
+  finishCount = 3;
+
   onSetState(state: 'None' | 'Doing' | 'Finish'): void {
     this.state = state;
   }

@@ -1,9 +1,14 @@
-<div>利用範本參考取得 TaskComponent 內狀態: {{ task.state }}</div>
-<hr />
-<app-task
-  #task
-  id="1"
-  [content]="content"
-  [type]="type"
-  [(state)]="state"
-></app-task>
+<p>Before ng-template</p>
+<ng-template>
+  <app-task
+    id="1"
+    [content]="content"
+    [type]="type"
+    [(state)]="state"
+  ></app-task>
+  <hr />
+  <div>代辦事項總數:{{ totalCount }}</div>
+  <div>已完成個數:{{ finishCount }}</div>
+  <div>剩下代辦事項:{{ totalCount - finishCount }}</div>
+</ng-template>
+<p>After ng-template</p>
