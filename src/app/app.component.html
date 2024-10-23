@@ -1,7 +1,8 @@
-<p>Before ng-template</p>
-<div *ngTemplateOutlet="task"></div>
-<p>After ng-template</p>
-<ng-template #task>
+<div *ngTemplateOutlet="task; context: { totalCount: 6, finishCount: 3 }"></div>
+<br />
+<div *ngTemplateOutlet="task; context: { totalCount: 3, finishCount: 1 }"></div>
+
+<ng-template #task let-totalCount="totalCount" let-finishCount="finishCount">
   <app-task
     id="1"
     [content]="content"
