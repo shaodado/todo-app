@@ -1,10 +1,25 @@
-<div *ngTemplateOutlet="task; context: { totalCount: 6, finishCount: 3 }"></div>
+<div
+  *ngTemplateOutlet="
+    task;
+    context: { $implicit: 1, totalCount: 6, finishCount: 3 }
+  "
+></div>
 <br />
-<div *ngTemplateOutlet="task; context: { totalCount: 3, finishCount: 1 }"></div>
+<div
+  *ngTemplateOutlet="
+    task;
+    context: { $implicit: 2, totalCount: 3, finishCount: 1 }
+  "
+></div>
 
-<ng-template #task let-totalCount="totalCount" let-finishCount="finishCount">
+<ng-template
+  #task
+  let-id
+  let-totalCount="totalCount"
+  let-finishCount="finishCount"
+>
   <app-task
-    id="1"
+    [id]="1"
     [content]="content"
     [type]="type"
     [(state)]="state"
