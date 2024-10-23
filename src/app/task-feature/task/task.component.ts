@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -6,11 +6,19 @@ import { Component } from '@angular/core';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  content = '建立代辦事項元件';
+  private _id!: number;
 
-  type: 'Home' | 'Work' | 'Other' = 'Work';
+  @Input() content!: string;
+  @Input() type!: 'Home' | 'Work' | 'Other';
+  @Input() state!: 'None' | 'Doing' | 'Finish';
 
-  state: 'None' | 'Doing' | 'Finish' = 'None';
+  @Input() set id(id: string) {
+    this._id = +id;
+  }
+
+  get id(): string {
+    return this._id.toString();
+  }
 
   className = 'work';
 
