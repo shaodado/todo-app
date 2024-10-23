@@ -1,0 +1,13 @@
+button:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+.home {
+  color: red;
+}
+.work {
+  color: blue;
+}
+.other {
+  color: green;
+}

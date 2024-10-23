@@ -9,13 +9,15 @@ export class TaskComponent {
   content = '建立代辦事項元件';
 
   type: 'Home' | 'Work' | 'Other' = 'Work';
-  fontSize = 14;
 
   state: 'None' | 'Doing' | 'Finish' = 'None';
-  onSetState(state: 'None' | 'Doing' | 'Finish') {
-    this.state = state;
-  }
+
+  className = 'work';
 
   totalCount = 10;
   finishCount = 3;
+
+  onSetState(state: 'None' | 'Doing' | 'Finish'): void {
+    this.state = state;
+  }
 }
