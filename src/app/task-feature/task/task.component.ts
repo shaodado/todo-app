@@ -1,4 +1,10 @@
-import { Attribute, Component, Input } from '@angular/core';
+import {
+  Attribute,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -12,6 +18,8 @@ export class TaskComponent {
   @Input() type!: 'Home' | 'Work' | 'Other';
   @Input() state!: 'None' | 'Doing' | 'Finish';
 
+  @Output() stateChange = new EventEmitter<'None' | 'Doing' | 'Finish'>();
+
   constructor(@Attribute('id') public id: number) {}
   className = 'work';
 
@@ -19,6 +27,6 @@ export class TaskComponent {
   finishCount = 3;
 
   onSetState(state: 'None' | 'Doing' | 'Finish'): void {
-    this.state = state;
+    this.stateChange.emit(state);
   }
 }

@@ -1,1 +1,7 @@
-<app-task id="1" [content]="content" [type]="type" [state]="state"></app-task>
+<app-task
+  id="1"
+  [content]="content"
+  [type]="type"
+  [state]="state"
+  (stateChange)="onSetState($event)"
+></app-task>
