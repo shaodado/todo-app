@@ -4,16 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskFeatureModule } from './task-feature/task-feature.module';
+import { PageContainerComponent } from './utils/page-container/page-container.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,TaskFeatureModule
-  ],
+  declarations: [AppComponent, PageContainerComponent],
+  imports: [BrowserModule, AppRoutingModule, TaskFeatureModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
