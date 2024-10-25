@@ -1,4 +1,4 @@
-import { Component, contentChild, ContentChildren, ElementRef, QueryList } from '@angular/core';
+import { Component, ContentChildren, ElementRef, QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-page-container',
