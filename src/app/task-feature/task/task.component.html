@@ -3,12 +3,14 @@
 [class.other]="type === 'Other'">類型:{{ type }}</div>
 <div>Task 1 - {{ content }}</div>
 <div>代辦事項狀態:{{ state }}</div>
+<div>開始日期: {{startDate}}</div>
+<div>完成日期: {{finishDate}}</div>
 <button
   type="button"
   [disabled]="state === 'None'"
   (click)="onSetState('None')"
 >
-  未安裝
+  未完成
 </button>
 <button
   type="button"

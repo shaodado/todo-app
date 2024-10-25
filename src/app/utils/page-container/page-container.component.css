@@ -12,6 +12,10 @@ div.title {
   height: 35px;
 }
 
+div.content {
+  min-height: 200px;
+}
+
 div.footer {
   border-top: 1px solid #aaa;
 }
