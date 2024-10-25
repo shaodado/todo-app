@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, contentChild, ContentChildren, ElementRef, QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-page-container',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './page-container.component.css'
 })
 export class PageContainerComponent {
-
+  @ContentChildren('button',{descendants: true}) 
+  buttonElements!: QueryList<ElementRef>; 
 }
