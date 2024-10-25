@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+div {
+  padding: 10px;
+}
+
+div.title {
+  padding: 0 10px;
+  border-bottom: 1px solid #aaa;
+  height: 35px;
+}
+
+div.footer {
+  border-top: 1px solid #aaa;
+}
