@@ -8,6 +8,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { Task } from './model/task';
 
 @Component({
   selector: 'app-task',
@@ -15,17 +16,9 @@ import {
   styleUrl: './task.component.css',
 })
 export class TaskComponent  implements OnInit, OnChanges {
-  @Input({ required: true, transform: numberAttribute })
-  id!: number;
-
   @Input({ required: true })
-  content!: string;
+  task!: Task;
 
-  @Input({ required: true })
-  type!: 'Home' | 'Work' | 'Other';
-
-  @Input({ required: true })
-  state!: 'None' | 'Doing' | 'Finish';
   @Output()
   stateChange = new EventEmitter<'None' | 'Doing' | 'Finish'>();
 
@@ -50,7 +43,7 @@ export class TaskComponent  implements OnInit, OnChanges {
   }
 
   setTaskDate(): void {
-    switch (this.state) {
+    switch (this.task.state) {
       case 'None':
         this.startDate = undefined;
         this.finishDate = undefined;

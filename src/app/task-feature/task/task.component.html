@@ -1,27 +1,31 @@
-<div [class.home]="type === 'Home'"
-[class.work]="type === 'Work'"
-[class.other]="type === 'Other'">類型:{{ type }}</div>
-<div>Task 1 - {{ content }}</div>
-<div>代辦事項狀態:{{ state }}</div>
+<div
+  [class.home]="task.type === 'Home'"
+  [class.work]="task.type === 'Work'"
+  [class.other]="task.type === 'Other'"
+>
+  類型：{{ task.type }}
+</div>
+<div>Task 1 - {{ task.content }}</div>
+<div>代辦事項狀態:{{ task.state }}</div>
 <div>開始日期: {{startDate}}</div>
 <div>完成日期: {{finishDate}}</div>
 <button
   type="button"
-  [disabled]="state === 'None'"
+  [disabled]="task.state === 'None'"
   (click)="onSetState('None')"
 >
   未完成
 </button>
 <button
   type="button"
-  [disabled]="state === 'Doing'"
+  [disabled]="task.state === 'Doing'"
   (click)="onSetState('Doing')"
 >
   進行中
 </button>
 <button
   type="button"
-  [disabled]="state === 'Finish'"
+  [disabled]="task.state === 'Finish'"
   (click)="onSetState('Finish')"
 >
   已完成
