@@ -4,10 +4,8 @@
     <button>查詢</button>
   </div>
   <app-task
-    id="1"
-    [content]="content"
-    [type]="type"
-    [(state)]="state"
+  class="small"
+  [task]="task" (stateChange)="onSetState($event)"
   ></app-task>
   <div class="footer">
     <div>待辦事項總數：{{ totalCount }}</div>
