@@ -8,16 +8,30 @@ import { Task } from './task-feature/task/model/task';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  @ViewChild(TaskComponent)
-  viewTask!: TaskComponent;
-
-  @ViewChild(TaskComponent, { static: true })
-  staticTask!: TaskComponent;
-
   task = new Task({
     id: 1,
     content: '建立待辦事項元件',
     type: 'Work',
+    important: true,
+    urgent: true,
+    state: 'None',
+  });
+
+  task_2 = new Task({
+    id: 2,
+    content: '購買 iPhone 手機 - 30000',
+    type: 'Other',
+    important: false,
+    urgent: false,
+    state: 'None',
+  });
+
+  task_3 = new Task({
+    id: 3,
+    content: '家庭聚餐',
+    type: 'Home',
+    important: true,
+    urgent: false,
     state: 'None',
   });
 
@@ -25,31 +39,7 @@ export class AppComponent {
 
   finishCount = 3;
 
-  ngOnInit(): void {
-    // 要用右上方的 Open in New Window 功能，利用開發者工具觀察
-    console.log('Angular ngOnInit Lift Cycle Hook - viewTask', this.viewTask);
-    console.log(
-      'Angular ngOnInit Lift Cycle Hook - staticTask',
-      this.staticTask
-    );
-  }
-
-  ngAfterViewInit(): void {
-    console.log(
-      'Angular ngAfterViewInit Lift Cycle Hook - viewTask',
-      this.viewTask
-    );
-    console.log(
-      'Angular ngAfterViewInit Lift Cycle Hook - staticTask',
-      this.staticTask
-    );
-  }
-
-  ngAfterViewChecked(): void {
-    console.log('Angular ngAfterViewChecked Lift Cycle Hook');
-  }
-
-  onSetState(state: 'None' | 'Doing' | 'Finish'): void {
-    this.task.state = state;
+  onSetState(task: Task, state: 'None' | 'Doing' | 'Finish'): void {
+    task.state = state;
   }
 }
