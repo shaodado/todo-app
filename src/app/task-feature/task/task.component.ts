@@ -8,15 +8,14 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
-import { Task } from './model/task';
+import { Task } from '../model/task';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })
-export class TaskComponent  implements OnInit, OnChanges {
-
+export class TaskComponent  implements OnInit {
   @Input({ required: true })
   task!: Task;
 
@@ -38,10 +37,6 @@ export class TaskComponent  implements OnInit, OnChanges {
 
   ngDoCheck(): void {
     this.setTaskDate();
-  }
-  
-  ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
   }
 
   onSetState(state: 'None' | 'Doing' | 'Finish'): void {

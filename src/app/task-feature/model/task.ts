@@ -9,5 +9,9 @@ export class Task {
 
   type!: 'Home' | 'Work' | 'Other';
 
+  important!: boolean;
+
+  urgent!: boolean;
+
   state!: 'None' | 'Doing' | 'Finish';
 }
