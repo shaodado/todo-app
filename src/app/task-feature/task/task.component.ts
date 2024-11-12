@@ -2,11 +2,11 @@ import {
   Component,
   EventEmitter,
   Input,
-  numberAttribute,
+  input,
   OnChanges,
   OnInit,
   Output,
-  SimpleChanges,
+  SimpleChanges
 } from '@angular/core';
 import { Task } from './model/task';
 
@@ -16,26 +16,32 @@ import { Task } from './model/task';
   styleUrl: './task.component.css',
 })
 export class TaskComponent  implements OnInit, OnChanges {
+
   @Input({ required: true })
   task!: Task;
 
   @Output()
   stateChange = new EventEmitter<'None' | 'Doing' | 'Finish'>();
 
+  contentClass!: { [key: string]: boolean };
+
   startDate?: Date;
 
   finishDate?: Date;
 
-
   ngOnInit(): void {
-    console.log('Angular OnInit Life Cycle Hook');
+    this.contentClass = {
+      important: this.task.important,
+      urgent: this.task.urgent,
+    };
   }
 
+  ngDoCheck(): void {
+    this.setTaskDate();
+  }
+  
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('Angular OnChanges Life Cycle Hook', changes);
-    if (changes['state']) {
-      this.setTaskDate();
-    }
+    throw new Error('Method not implemented.');
   }
 
   onSetState(state: 'None' | 'Doing' | 'Finish'): void {

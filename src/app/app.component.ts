@@ -8,32 +8,11 @@ import { Task } from './task-feature/task/model/task';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  task = new Task({
-    id: 1,
-    content: '建立待辦事項元件',
-    type: 'Work',
-    important: true,
-    urgent: true,
-    state: 'None',
-  });
-
-  task_2 = new Task({
-    id: 2,
-    content: '購買 iPhone 手機 - 30000',
-    type: 'Other',
-    important: false,
-    urgent: false,
-    state: 'None',
-  });
-
-  task_3 = new Task({
-    id: 3,
-    content: '家庭聚餐',
-    type: 'Home',
-    important: true,
-    urgent: false,
-    state: 'None',
-  });
+  tasks = [
+    new Task({id: 1, content: '建立代辦事項元件', type: 'Work', important: true, urgent: true, state: 'None'}),
+    new Task({id: 2, content: '購買 iphone 3000 元', type: 'Work', important: true, urgent: false, state: 'None'}),
+    new Task({id: 3, content: '家庭聚餐', type: 'Work', important: false, urgent: true, state: 'None'}),
+ ];
 
   totalCount = 10;
 

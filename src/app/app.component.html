@@ -4,24 +4,16 @@
     <button #button>新增</button>
     <button #button>查詢</button>
   </div>
+
   <app-task
-    class="odd"
+    *ngFor="let task of tasks; let odd =odd;"
+    [class.odd]="odd"
     [task]="task"
     (stateChange)="onSetState(task, $event)"
   ></app-task>
-  <app-task
-    [task]="task_2"
-    (stateChange)="onSetState(task_2, $event)"
-  ></app-task>
-  <app-task
-    class="odd"
-    [task]="task_3"
-    (stateChange)="onSetState(task_3, $event)"
-  ></app-task>
+
   <br />
-  <div class="small">
-    <app-task [task]="task" (stateChange)="onSetState(task, $event)"></app-task>
-  </div>
+
   <div class="footer">
     <div>待辦事項總數：{{ totalCount }}</div>
     <div>已完成個數：{{ finishCount }}</div>

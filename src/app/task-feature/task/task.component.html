@@ -1,14 +1,18 @@
-<div
-  [class.home]="task.type === 'Home'"
-  [class.work]="task.type === 'Work'"
-  [class.other]="task.type === 'Other'"
->
-  類型：{{ task.type }}
+<div class="content">
+  <div>
+    <span [ngClass]="contentClass">{{ task.id }}.{{ task.content }}</span>
+    <span
+    class="type"
+      [class.home]="task.type === 'Home'"
+      [class.work]="task.type === 'Work'"
+      [class.other]="task.type === 'Other'"
+    >
+    </span>
+    {{ task.type }}
+    <span>開始日期: {{ startDate }}/完成日期: {{ finishDate }}</span>
+  </div>
 </div>
-<div>Task 1 - {{ task.content }}</div>
-<div>代辦事項狀態:{{ task.state }}</div>
-<div>開始日期: {{startDate}}</div>
-<div>完成日期: {{finishDate}}</div>
+<div>{{ task.state }}</div>
 <button
   type="button"
   [disabled]="task.state === 'None'"
