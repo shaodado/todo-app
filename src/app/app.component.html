@@ -5,13 +5,18 @@
     <button #button>新增</button>
     <button #button>查詢</button>
   </div>
-
+<div *ngIf="tasks.length >=1; else empty">
   <app-task
-    *ngFor="let task of tasks; let odd =odd; trackBy: trackById"
-    [class.odd]="odd"
-    [task]="task"
-    (stateChange)="onSetState(task, $event)"
+  *ngFor="let task of tasks; let odd =odd; trackBy: trackById"
+  [class.odd]="odd"
+  [task]="task"
+  (stateChange)="onSetState(task, $event)"
   ></app-task>
+</div>
+<ng-template #empty>
+  <div class="data-empty">無代辦事項</div>
+</ng-template>
+
   <div class="footer">
     <div>待辦事項總數：{{ totalCount }}</div>
     <div>已完成個數：{{ finishCount }}</div>
