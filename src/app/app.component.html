@@ -1,25 +1,33 @@
 <app-page-container>
   <h3 #title>待辦事項清單</h3>
   <div page-button>
-    <button type="button" (click)="onReset()">重設</button>
+    <button type="button" [disabled]="tasks.length >=1" (click)="onLoad()">
+      載入
+    </button>
+    <button type="button" [disabled]="tasks.length ===0" (click)="onClear()">
+      清除
+    </button>
     <button #button>新增</button>
     <button #button>查詢</button>
   </div>
-<div *ngIf="tasks.length >=1; else empty">
-  <app-task
-  *ngFor="let task of tasks; let odd =odd; trackBy: trackById"
-  [class.odd]="odd"
-  [task]="task"
-  (stateChange)="onSetState(task, $event)"
-  ></app-task>
-</div>
-<ng-template #empty>
-  <div class="data-empty">無代辦事項</div>
-</ng-template>
-
+  <div *ngIf="tasks.length >= 1; then list; else empty"></div>
   <div class="footer">
     <div>待辦事項總數：{{ totalCount }}</div>
     <div>已完成個數：{{ finishCount }}</div>
     <div>剩下待辦事項個數：{{ totalCount - finishCount }}</div>
   </div>
 </app-page-container>
+
+  <ng-template #list>
+    <app-task
+    *ngFor="let task of tasks; let odd =odd; trackBy: trackById"
+    [class.odd]="odd"
+    [task]="task"
+    (stateChange)="onSetState(task, $event)"
+    ></app-task>
+  </ng-template>
+
+<ng-template #empty>
+  <div class="data-empty">無代辦事項</div>
+</ng-template>
+

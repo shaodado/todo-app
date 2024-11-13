@@ -1,6 +1,13 @@
 p {
   font-family: Lato;
 }
+
 button:not(:last-child) {
   margin-right: 0.5em;
+}
+
+.data-empty {
+  border: solid 1px #aaa;
+  text-align: center;
+  line-height: 32pt;
 }

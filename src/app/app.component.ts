@@ -44,7 +44,7 @@ export class AppComponent {
   trackById(index: number , task:Task): number{
     return task.id;
   }
-  onReset(): void {
+  onLoad(): void {
     this.tasks = [
       new Task({
         id: 1,
@@ -79,5 +79,8 @@ export class AppComponent {
         state: 'None',
       }),
     ];
+  }
+  onClear(): void {
+    this.tasks = [];
   }
 }
