@@ -1,12 +1,13 @@
 <app-page-container>
   <h3 #title>待辦事項清單</h3>
   <div page-button>
+    <button type="button" (click)="onReset()">重設</button>
     <button #button>新增</button>
     <button #button>查詢</button>
   </div>
 
   <app-task
-    *ngFor="let task of tasks; let odd =odd;"
+    *ngFor="let task of tasks; let odd =odd; trackBy: trackById"
     [class.odd]="odd"
     [task]="task"
     (stateChange)="onSetState(task, $event)"

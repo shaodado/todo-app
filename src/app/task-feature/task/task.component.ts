@@ -2,11 +2,8 @@ import {
   Component,
   EventEmitter,
   Input,
-  input,
-  OnChanges,
   OnInit,
   Output,
-  SimpleChanges
 } from '@angular/core';
 import { Task } from '../model/task';
 
