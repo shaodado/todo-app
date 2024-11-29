@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Task } from './task-feature/model/task';
 
 @Component({
@@ -7,6 +7,7 @@ import { Task } from './task-feature/model/task';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  @ViewChild('button',{static:true}) button!:unknown;
   tasks = [
     new Task({
       id: 1,
