@@ -1,18 +1,12 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
-import { Task } from '../model/task';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Task } from '../../model/task';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })
-export class TaskComponent  implements OnInit {
+export class TaskComponent implements OnInit {
   @Input({ required: true })
   task!: Task;
 

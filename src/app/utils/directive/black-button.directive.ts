@@ -6,9 +6,7 @@ import { Directive, ElementRef, Renderer2 } from '@angular/core';
 })
 export class BlackButtonDirective {
   constructor(private elRef: ElementRef, private renderer: Renderer2) {}
-  changeColor(color: string) {
-    this.renderer.setStyle(this.elRef.nativeElement, 'color', color);
-  }
+
   ngOnInit(): void {
     this.renderer.setStyle(
       this.elRef.nativeElement,
@@ -16,5 +14,9 @@ export class BlackButtonDirective {
       'black'
     );
     this.renderer.setStyle(this.elRef.nativeElement, 'color', 'white');
+  }
+
+  changeColor(color: string): void {
+    this.renderer.setStyle(this.elRef.nativeElement, 'color', color);
   }
 }
