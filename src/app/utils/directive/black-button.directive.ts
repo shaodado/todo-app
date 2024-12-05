@@ -12,11 +12,7 @@ export class BlackButtonDirective {
       this.elRef.nativeElement,
       'background-color',
       'black'
-    );
+    )z
     this.renderer.setStyle(this.elRef.nativeElement, 'color', 'white');
-  }
-
-  changeColor(color: string): void {
-    this.renderer.setStyle(this.elRef.nativeElement, 'color', color);
   }
 }
