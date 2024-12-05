@@ -18,25 +18,31 @@
   </div>
 </div>
 <div class="button">
-  <button
-    type="button"
-    [disabled]="task.state === 'None'"
-    (click)="onSetState('None')"
-  >
-    未安排
-  </button>
-  <button
-    type="button"
-    [disabled]="task.state === 'Doing'"
-    (click)="onSetState('Doing')"
-  >
-    進行中
-  </button>
-  <button
-    type="button"
-    [disabled]="task.state === 'Finish'"
-    (click)="onSetState('Finish')"
-  >
-    已完成
-  </button>
+  <div>
+    <button type="button">編輯</button>
+    <button type="button" appButtonConfirm="是否確認刪除?">刪除</button>
+  </div>
+  <div>
+    <button
+      type="button"
+      [disabled]="task.state === 'None'"
+      (click)="onSetState('None')"
+    >
+      未安排
+    </button>
+    <button
+      type="button"
+      [disabled]="task.state === 'Doing'"
+      (click)="onSetState('Doing')"
+    >
+      進行中
+    </button>
+    <button
+      type="button"
+      [disabled]="task.state === 'Finish'"
+      (click)="onSetState('Finish')"
+    >
+      已完成
+    </button>
+  </div>
 </div>
