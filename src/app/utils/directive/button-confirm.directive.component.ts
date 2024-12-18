@@ -10,13 +10,14 @@ import {
   selector: 'button[appButtonConfirm]',
 })
 export class ButtonConfirmDirective {
-  @Input('appButtonconfirm') message!: string;
+  @Input('appButtonConfirm') message!: string;
   @Output() confirm = new EventEmitter<void>();
 
   @HostListener('click', ['$event'])
   clickEvent(event: Event) {
     event.preventDefault();
     event.stopPropagation();
+    console.log(event);
     if (confirm(this.message)) {
       this.confirm.emit();
     }
